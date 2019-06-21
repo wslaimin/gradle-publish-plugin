@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories{
+    mavenLocal()
+    jcenter()
+}
+
+dependencies{
+    compile gradleApi()
+}
+
+uploadArchives{
+    repositories.mavenDeployer{
+        repository(url:uri('')){
+            authentication(userName:'',password:'')
+        }
+        pom.groupId='com.lm.plugin'
+        pom.artifactId='publish-artifact'
+        pom.version=''
+    }
+}
