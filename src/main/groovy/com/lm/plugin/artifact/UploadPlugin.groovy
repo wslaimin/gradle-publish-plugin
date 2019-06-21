@@ -15,7 +15,7 @@ class UploadPlugin implements Plugin<Project> {
         Properties properties = new Properties()
         properties.load(new FileInputStream(new File(project.getProjectDir(), 'artifact.properties')))
 
-        project.tasks.create(name: 'androidJavadocs', type: Javdoc, {
+        project.tasks.create(name: 'androidJavadocs', type: Javadoc, {
             exclude '**/*.kt'
             source = project.android.sourceSets.main.java.srcDirs
             classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
