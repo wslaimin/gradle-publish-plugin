@@ -22,7 +22,7 @@ class UploadPlugin implements Plugin<Project> {
 
             //包含module路徑
             project.android.libraryVariants.all { variant ->
-                classpath += variant.javaCompiler.classpath
+                classpath += variant.javaCompileProvider.get().classpath
             }
         })
         project.tasks.create(name: 'androidJavadocsJar', type: Jar, dependsOn: project.tasks['androidJavadocs'], {
